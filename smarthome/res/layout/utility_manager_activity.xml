@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/actionbar" />
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" 
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" 
+            android:orientation="vertical">
+             <Button
+                android:id="@+id/myButtonElectricity"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/device_button"
+                android:text="@string/electricity"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/myButtonGas"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/device_button"
+                android:text="@string/gas"
+                android:textSize="20dp"
+                android:textStyle="bold" />>
+
+        </LinearLayout>
+
+
+            <Button
+                android:id="@+id/myButtonWater"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/device_button"
+                android:text="@string/water"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+             <Button
+                android:id="@+id/myButtonUserAlarm"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/device_button"
+                android:text="@string/usage_alarm"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

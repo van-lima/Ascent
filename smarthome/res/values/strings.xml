@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Smart Home</string>
+    <string name="about_msg">This program is the sample application \n
+	2011 sibo</string>
+    <string name="error_configuration">Please configure your serial port first.</string>
+    <string name="error_security">You do not have read/write permission to the serial
+		port.</string>
+    <string name="error_unknown">The serial port can not be opened for an unknown
+		reason.</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="ip">IP</string>
+    <string name="port">PORT</string>
+    <!-- for searching device -->
+    <string name="devicelist_refresh">Refresh</string>
+    <string name="devicelist_autosearch">Auto Search</string>
+    <string name="devicelist_manusearch">Manu Search</string>
+    <string name="setting">Settings</string>
+    <string name="connected">Connected</string>
+    <string name="search_device">Search Devices</string>
+
+    <!-- chart -->
+    <string name="input_data">Input Data</string>
+    <string name="view">View</string>
+    <string name="day">Day</string>
+    <string name="week">Week</string>
+    <string name="month">Month</string>
+    <string name="quarter">Quarter</string>
+    <string name="year">Year</string>
+    <string name="current_device">Current Devices</string>
+    <string name="add_monitored">Add Monitored Appliance</string>
+    <string name="add_unmonitored">Add Un-Monitored Appliance</string>
+    <string name="edit_appliance">Edit Appliance</string>
+    <string name="delete_appliciance">Delete Appliance</string>
+    <string name="device_manager">Device Manager</string>
+    <string name="user_manager">User Manager</string>
+    <string name="utility_manager">Utility Manager</string>
+    <string name="device_links">Device Links</string>
+    <string name="network">Network</string>
+    <string name="current_users">Current Users</string>
+    <string name="add_user">Add User</string>
+    <string name="edit_user">Edit User</string>
+    <string name="delete_user">Delete User</string>
+    <string name="electricity">Electricity</string>
+    <string name="gas">Gas</string>
+    <string name="water">Water</string>
+    <string name="usage_alarm">Usage Alarm</string>
+
+    <!-- add user -->
+    <string name="user_name">User Name:</string>
+    <string name="user_pin">User PIN:</string>
+    <string name="retype_user_pin">Re-Type User PIN:</string>
+    <string name="user_type">User Type:</string>
+    <string name="confirm">Confirm</string>
+    <string name="administrator">Administrator</string>
+    <string name="limited">Limited</string>
+    <string name="change_pin">Change PIN</string>
+    <string name="new_pin">New PIN:</string>
+    <string name="retype_new_pin">Re-Type New PIN:</string>
+    <string name="administrator_pin">Administrator PIN</string>
+    <!-- message -->
+     <string name="msg_delete_user">Are you sure want to delete user?</string>
+      
+
+</resources>
