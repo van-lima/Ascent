@@ -53,22 +53,11 @@ public class AddUser extends BaseActivity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		Intent intent;
 		switch (v.getId()) {
-		case R.id.myButtonAddUser:
-			intent = new Intent(AddUser.this, AddUser.class);
-			startActivity(intent);
+		case R.id.myButtonConfirm:
+			finish();
 			break;
-		case R.id.myButtonEditUser:
-			intent = new Intent(AddUser.this, EditUser.class);
-			startActivity(intent);
-			break;
-		case R.id.myButtonDeleteUser:
-			intent = new Intent(AddUser.this, DeleteUser.class);
-			startActivity(intent);
-			break;
-		case R.id.myButtonSetting:
-			break;
+
 		default:
 			break;
 		}

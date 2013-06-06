@@ -1,4 +1,4 @@
-package com.ascentcomtec.smarthouse.activities.setting.usermanager;
+package com.ascentcomtec.smarthouse.activities.setting.devicemanager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +8,9 @@ import android.widget.Button;
 
 import com.ascentcomtec.smarthouse.R;
 import com.ascentcomtec.smarthouse.base.BaseActivity;
-import com.ascentcomtec.smarthouse.ui.portlets.usermanage.DeleteUser;
+import com.ascentcomtec.smarthouse.ui.portlets.usermanage.EditUser;
 
-public class EditUser extends BaseActivity implements OnClickListener {
+public class DeleteDevice extends BaseActivity implements OnClickListener {
 
 	private Button confirmBt;
 
@@ -18,12 +18,12 @@ public class EditUser extends BaseActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.edit_user_activity);
+		setContentView(R.layout.delete_device_activity);
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
 		}
 		initControl();
-		setTitle(getString(R.string.edit_user));
+		setTitle(getString(R.string.delete_device));
 		setButtonListener();
 
 	}
@@ -44,7 +44,6 @@ public class EditUser extends BaseActivity implements OnClickListener {
 		helpBt.setOnClickListener(this);
 		homeBt.setOnClickListener(this);
 		settingBt.setOnClickListener(this);
-
 		confirmBt.setOnClickListener(this);
 	}
 
@@ -55,7 +54,6 @@ public class EditUser extends BaseActivity implements OnClickListener {
 		case R.id.myButtonConfirm:
 			finish();
 			break;
-
 		default:
 			break;
 		}

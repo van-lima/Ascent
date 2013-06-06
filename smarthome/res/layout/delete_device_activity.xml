@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/actionbar" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/msg_delete_device"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/background_round_corner" >
+
+            <EditText
+                android:id="@+id/myEditTextAdministratorPin"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/transparent"
+                android:hint="@string/administrator_pin"
+                android:inputType="textPassword" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/myButtonConfirm"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="@string/confirm"
+            android:background="@drawable/device_button"
+            android:textSize="@dimen/text_size" />
+    </LinearLayout>
+
+</LinearLayout>

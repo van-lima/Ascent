@@ -60,8 +60,34 @@
     <string name="new_pin">New PIN:</string>
     <string name="retype_new_pin">Re-Type New PIN:</string>
     <string name="administrator_pin">Administrator PIN</string>
+    <string name="add_device">Add Device</string>
+    <string name="delete_device">Delete Device</string>
+    <string name="edit_device">Edit Device</string>
+    <string name="next">Next</string>
+    <string name="device_name">Device Name</string>
+    <string name="mac_address">Mac Address</string>
+    <string name="user_defined_name">User Defined Name</string>
+    <string name="device_type">Device Type</string>
+    <string name="brand">Brand</string>
+    <string name="model_number">Model Number</string>
+    <string name="kw_per_hour">Kw Per Hour</string>
+    <string name="energy_cost_peak">Energy Cost Peak</string>
+    <string name="peak_time_start">Peak time start</string>
+    <string name="peak_time_finish">Peak time finish</string>
+    <string name="energy_cost_off_peak">Energy Cost Off-Peak</string>
+    <string name="energy_costs">Energy Costs</string>
+    <string name="electricity_cost">Electricity Costs</string>
+    <string name="quarter_start_day">Quarter start day</string>
+    <string name="number_of_billing_days">Number of billing days</string>
+    <string name="last_bill_energy_usage">Last bill energy usage</string>
+    <string name="last_bill_carbon_emissions">Last bill carbon emissions</string>
+    <string name="supply_charge">Supply charge</string>
+    <string name="done">Done</string>
+    <string name="tonnes">Tonnes</string>
+    <string name="estimated_hours_used_per_week">Estimated hours used per week</string>
+
     <!-- message -->
-     <string name="msg_delete_user">Are you sure want to delete user?</string>
-      
+    <string name="msg_delete_user">Are you sure want to delete user?</string>
+    <string name="msg_delete_device">Are you sure want to delete device?</string>
 
 </resources>

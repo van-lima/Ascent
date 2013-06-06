@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.ascentcomtec.smarthouse.R;
-import com.ascentcomtec.smarthouse.adapters.ListUserAdapter;
+import com.ascentcomtec.smarthouse.adapters.ListAdapter;
 import com.ascentcomtec.smarthouse.base.BaseActivity;
 
 public class UserManager extends BaseActivity implements OnClickListener,
@@ -18,7 +18,7 @@ public class UserManager extends BaseActivity implements OnClickListener,
 
 	private Button addUserBt, editUserBt, deleteUserBt;
 	private ListView listUser;
-	private ListUserAdapter listUserAdapter;
+	private ListAdapter listUserAdapter;
 	private String[] users = { "User One", "User Two", "User Three",
 			"User Four", "User Five", "User Six", "User Seven", "User Eight" };
 
@@ -49,7 +49,7 @@ public class UserManager extends BaseActivity implements OnClickListener,
 		listUser = (ListView) findViewById(R.id.myListViewDevices);
 		
 		listUser.setOnItemClickListener(this);
-		listUserAdapter = new ListUserAdapter(this, users);
+		listUserAdapter = new ListAdapter(this, users);
 		listUser.setAdapter(listUserAdapter);
 		listUser.setAnimationCacheEnabled(true);
 		listUser.setAlwaysDrawnWithCacheEnabled(true);

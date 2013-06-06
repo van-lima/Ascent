@@ -37,7 +37,7 @@ public class DeleteUser extends BaseActivity implements OnClickListener {
 	protected void initControl() {
 		super.initControl();
 		confirmBt = (Button) findViewById(R.id.myButtonConfirm);
-//		gridView = (GridView)findViewById(R.id.myGridViewKeypad);
+		// gridView = (GridView)findViewById(R.id.myGridViewKeypad);
 
 	}
 
@@ -54,22 +54,11 @@ public class DeleteUser extends BaseActivity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		Intent intent;
 		switch (v.getId()) {
-		case R.id.myButtonAddUser:
-			intent = new Intent(DeleteUser.this, DeleteUser.class);
-			startActivity(intent);
+		case R.id.myButtonConfirm:
+			finish();
 			break;
-		case R.id.myButtonEditUser:
-			intent = new Intent(DeleteUser.this, EditUser.class);
-			startActivity(intent);
-			break;
-		case R.id.myButtonDeleteUser:
-			intent = new Intent(DeleteUser.this, DeleteUser.class);
-			startActivity(intent);
-			break;
-		case R.id.myButtonSetting:
-			break;
+
 		default:
 			break;
 		}

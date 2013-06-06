@@ -115,6 +115,19 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.devicemanager.AddDevice"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+         <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.devicemanager.DeleteDevice"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+         <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.devicemanager.EditDevice"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        
+        <activity
             android:name="com.ascentcomtec.smarthouse.activities.setting.usermanager.UserManager"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>

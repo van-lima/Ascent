@@ -10,13 +10,13 @@ import android.widget.TextView;
 
 import com.ascentcomtec.smarthouse.R;
 
-public class ListUserAdapter extends BaseAdapter {
+public class ListAdapter extends BaseAdapter {
 
 	private String[] items;
 	private static LayoutInflater inflater = null;
 	private int posCheck = -1;
 
-	public ListUserAdapter(Context context, String[] items) {
+	public ListAdapter(Context context, String[] items) {
 		this.items = items;
 		inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
