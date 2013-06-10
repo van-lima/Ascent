@@ -86,8 +86,31 @@
     <string name="tonnes">Tonnes</string>
     <string name="estimated_hours_used_per_week">Estimated hours used per week</string>
 
+    <!-- time -->
+    <string name="hour">Hour</string>
+    <string name="minute">Minute</string>
     <!-- message -->
     <string name="msg_delete_user">Are you sure want to delete user?</string>
     <string name="msg_delete_device">Are you sure want to delete device?</string>
+
+    <!-- water -->
+    <string name="water_cost_step_1">Water Costs-Step 1</string>
+    <string name="water_cost_step_2">Water Costs-Step 2</string>
+    <string name="water_step_1_limit">Water Step 1 Limit</string>
+    <string name="water_usage_step_1">Water Usage Step 1</string>
+    <string name="water_usage_step_2">Water Usage Step 2</string>
+    <string name="seasonal_sewage_factor">Seasonal Sewage Factor</string>
+    <string name="sewage_discharge_factor">Sewage Discharge Factor</string>
+    <string name="sewage_discharge_price">Sewage Discharge Price</string>
+    <string name="sewage_system_charge">Sewage System Charge</string>
+    <string name="Water_supply_system_charge">Water Supply System Charge</string>
+    <string name="water_costs">Water Costs</string>
+
+    <!-- Gas -->
+   <string name="gas_costs">Gas Costs</string>
+
+    <!-- Alarm -->
+    <string name="usage_alarms">Usage Alarms</string>
+    <string name="system_kwh_usage_alarms">System Usage kWh any given time</string>
 
 </resources>

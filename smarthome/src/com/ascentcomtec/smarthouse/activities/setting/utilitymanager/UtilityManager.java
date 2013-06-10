@@ -8,9 +8,6 @@ import android.widget.Button;
 
 import com.ascentcomtec.smarthouse.R;
 import com.ascentcomtec.smarthouse.base.BaseActivity;
-import com.ascentcomtec.smarthouse.ui.portlets.usermanage.AddUser;
-import com.ascentcomtec.smarthouse.ui.portlets.usermanage.DeleteUser;
-import com.ascentcomtec.smarthouse.ui.portlets.usermanage.EditUser;
 
 public class UtilityManager extends BaseActivity implements OnClickListener {
 
@@ -62,12 +59,20 @@ public class UtilityManager extends BaseActivity implements OnClickListener {
 		Intent intent;
 		switch (v.getId()) {
 		case R.id.myButtonElectricity:
+			intent = new Intent(getApplicationContext(), Electricity.class);
+			startActivity(intent);
 			break;
 		case R.id.myButtonGas:
+			intent = new Intent(getApplicationContext(), Gas.class);
+			startActivity(intent);
 			break;
 		case R.id.myButtonWater:
+			intent = new Intent(getApplicationContext(), Water.class);
+			startActivity(intent);
 			break;
 		case R.id.myButtonUserAlarm:
+			intent = new Intent(getApplicationContext(), UsageAlarm.class);
+			startActivity(intent);
 			break;
 		default:
 			break;

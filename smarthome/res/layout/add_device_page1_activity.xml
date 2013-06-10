@@ -21,7 +21,7 @@
             <ListView
                 android:id="@+id/myListViewDevices"
                 android:layout_width="fill_parent"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/background_round_corner" >
             </ListView>
@@ -90,7 +90,8 @@
             android:textSize="@dimen/text_size"
             android:layout_alignParentBottom="true" 
              android:background="@drawable/device_button"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"/>
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_small_size"
@@ -98,6 +99,7 @@
             android:layout_alignParentBottom="true"
             android:textColor="@color/text_color"
             android:text="Page 1 of 2"
+            android:textStyle="bold"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"/>
     </RelativeLayout>
