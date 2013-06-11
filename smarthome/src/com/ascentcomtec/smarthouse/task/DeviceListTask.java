@@ -5,7 +5,6 @@ import android.app.AlertDialog.Builder;
 import android.os.AsyncTask;
 
 import com.ascentcomtec.smarthouse.activities.setting.devicemanager.DeviceManager;
-import com.ascentcomtec.smarthouse.ui.portlets.control.DeviceManage;
 import com.netvox.zbapi.java.API;
 import com.netvox.zbapi.java.model.CZBNode;
 

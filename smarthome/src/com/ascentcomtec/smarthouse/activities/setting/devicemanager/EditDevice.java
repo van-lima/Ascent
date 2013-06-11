@@ -11,16 +11,23 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.ascentcomtec.smarthouse.R;
 import com.ascentcomtec.smarthouse.adapters.ListAdapter;
 import com.ascentcomtec.smarthouse.base.BaseActivity;
+import com.netvox.zbapi.java.API;
+import com.netvox.zbapi.java.model.CZBNode;
 
 public class EditDevice extends BaseActivity implements OnClickListener {
 
 	private ViewPager viewPager;
 	private MyPagerAdapter adapter;
+	private CZBNode device;
+	private EditText deviceNameEd, macAdressEd;
+	private String deviceNameString;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,7 @@ public class EditDevice extends BaseActivity implements OnClickListener {
 		}
 		initControl();
 		setTitle(getString(R.string.edit_device));
+		device = DeviceManager.arrayDev.get(DeviceManager.curItem);
 		setButtonListener();
 	}
 
@@ -49,8 +57,6 @@ public class EditDevice extends BaseActivity implements OnClickListener {
 	@Override
 	protected void setButtonListener() {
 		super.setButtonListener();
-		helpBt.setOnClickListener(this);
-		homeBt.setOnClickListener(this);
 		settingBt.setOnClickListener(this);
 
 	}
@@ -90,6 +96,7 @@ public class EditDevice extends BaseActivity implements OnClickListener {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
 						viewPager.setCurrentItem(1, true);
+						deviceNameString = deviceNameEd.getText().toString();
 					}
 				});
 
@@ -113,6 +120,15 @@ public class EditDevice extends BaseActivity implements OnClickListener {
 				listUserAdapter.setCheck(0);
 				listUserAdapter.notifyDataSetChanged();
 
+				
+				deviceNameEd = (EditText) view
+						.findViewById(R.id.myEditTextAddDeviceName);
+				macAdressEd = (EditText) view
+						.findViewById(R.id.myEditTextMacAddress);
+
+				macAdressEd.setText(device.m_ZBNodeAttr.IEEE);
+				deviceNameEd.setText(device.m_ZBNodeAttr.Name);
+
 				break;
 			case 1:
 				resId = R.layout.add_device_page2_activity;
@@ -122,6 +138,14 @@ public class EditDevice extends BaseActivity implements OnClickListener {
 				confirmButton.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
+						if (deviceNameString.equals("")) {
+							viewPager.setCurrentItem(0, true);
+							Toast.makeText(getApplicationContext(),
+									"Please input name!", 0).show();
+						} else {
+							API.ZBDeviceChangeDName(device, deviceNameString);
+							finish();
+						}
 					}
 				});
 				break;
@@ -174,7 +198,6 @@ public class EditDevice extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-
 	}
 
 }

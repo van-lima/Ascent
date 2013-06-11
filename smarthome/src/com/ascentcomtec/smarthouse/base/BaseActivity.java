@@ -1,12 +1,15 @@
 package com.ascentcomtec.smarthouse.base;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.ascentcomtec.smarthouse.MainActivity;
 import com.ascentcomtec.smarthouse.R;
 
 public class BaseActivity extends Activity {
@@ -35,8 +38,24 @@ public class BaseActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				finish();
+			}
+		});
+
+		homeBt.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent home = new Intent(BaseActivity.this,
+						MainActivity.class);
+				home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(home);
+				finish();
+			}
+		});
+		helpBt.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(BaseActivity.this, "Coming soon", 0).show();
 			}
 		});
 

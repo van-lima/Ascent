@@ -72,7 +72,8 @@
                     android:id="@+id/myEditTextMacAddress"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:background="@color/transparent" />
+                    android:background="@color/transparent" 
+                    android:enabled="false"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

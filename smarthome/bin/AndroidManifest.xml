@@ -1,0 +1,167 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ascentcomtec.smarthouse"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SHAKE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:debuggable="true"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:persistent="true"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        <activity
+            android:name="InitializeActivity"
+            android:label="SmartHouse"
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="MainActivity"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity android:name="Help" >
+        </activity>
+        <activity android:name="ControlMore" >
+        </activity>
+        <activity android:name=".ui.portlets.utilities.statistic.WaterChart" >
+        </activity>
+        <activity android:name=".ui.portlets.utilities.statistic.GasChart" >
+        </activity>
+        <activity android:name=".ui.portlets.utilities.statistic.ElectricityChart" >
+        </activity>
+        <activity
+            android:name=".ui.portlets.utilities.statistic.ChartUsage"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity android:name="SecurityMore" >
+        </activity>
+        <activity android:name="com.exina.android.calendar.CalendarElectricityActivity" >
+        </activity>
+        <activity android:name="com.exina.android.calendar.CalendarGasActivity" >
+        </activity>
+        <activity android:name="com.exina.android.calendar.CalendarWaterActivity" >
+        </activity>
+        <activity android:name=".ui.portlets.utilities.statistic.InputData" >
+        </activity>
+        <activity android:name=".ui.portlets.settings.Setting" >
+        </activity>
+        <activity android:name=".ui.portlets.control.DoorInterCom" >
+        </activity>
+        <activity android:name=".ui.portlets.control.Cameras" >
+        </activity>
+        <activity android:name=".ui.portlets.control.Arm" >
+        </activity>
+        <activity android:name=".ui.portlets.control.DeviceManage" >
+        </activity>
+        <activity android:name=".ui.portlets.control.UserManage" >
+        </activity>
+        <activity android:name=".ui.portlets.control.DeviceLinks" >
+        </activity>
+        <activity android:name=".ui.portlets.control.UtilityManage" >
+        </activity>
+        <activity android:name=".ui.components.Network" >
+        </activity>
+        <activity android:name=".ui.portlets.usermanage.AddUser" >
+        </activity>
+        <activity android:name=".ui.portlets.usermanage.EditUser" >
+        </activity>
+        <activity android:name=".ui.portlets.usermanage.DeleteUser" >
+        </activity>
+        <activity android:name=".ui.portlets.devicemanage.AddDevice" >
+        </activity>
+        <activity android:name=".ui.portlets.devicemanage.EditDevice" >
+        </activity>
+        <activity android:name=".ui.portlets.devicemanage.DeleteDevice" >
+        </activity>
+        <activity android:name=".utilities.ChartUtilities" >
+        </activity>
+        <activity android:name="SecuriryCenter" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.devicemanager.DeviceManager"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.devicemanager.AddDevice"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.devicemanager.DeleteDevice"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.devicemanager.EditDevice"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.usermanager.UserManager"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.usermanager.AddUser"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.usermanager.EditUser"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.usermanager.DeleteUser"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.utilitymanager.UtilityManager"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.utilitymanager.Electricity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.utilitymanager.Water"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.utilitymanager.Gas"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ascentcomtec.smarthouse.activities.setting.utilitymanager.UsageAlarm"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+    </application>
+
+</manifest>

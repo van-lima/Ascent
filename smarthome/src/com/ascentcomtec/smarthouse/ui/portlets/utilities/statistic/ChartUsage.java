@@ -44,16 +44,16 @@ public class ChartUsage extends Activity implements OnClickListener {
 	private final String[] DAYS = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",
 			"Sun" };
 	private final String[] WEEK = { "Week1", "Week2", "Week3", "Week3" };
-	private final String[] MONTH = { "January", "February", "March", "April",
-			"May", "June", "July", "August", "September", "October",
-			"November", "December" };
+	private final String[] MONTH = { "Jan", "Feb", "Mar", "Apr",
+			"May", "Jun", "Jul", "Aug", "Sep", "Oct",
+			"Nov", "Dec" };
 	private final String[] QUARTER = { "Quarter 1", "Quarter 2", "Quarter 3",
 			"Quarter 3" };
 	private final String[] YEAR = { "2010/2013", "2011/2013", "2012/2013",
 			"2013/2013" };
 	private int curTab = 0;
 	private int curNameGraph = 0;
-	private float yMin, yMax;
+	private float  yMax;
 	private TextView dateTv, titleTv;
 	private Button backBt, inputBt, dayBt, weekBt, monthBt, quarterBt, yearBt;
 
@@ -410,7 +410,6 @@ public class ChartUsage extends Activity implements OnClickListener {
 	private void sort() {
 		List temp = Arrays.asList(ArrayUtils.toObject(dataFloats));
 		yMax = Collections.max(temp);
-		yMin = Collections.min(temp);
 		if (yMax == 0) {
 			yMax = 10;
 		}

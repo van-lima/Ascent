@@ -53,8 +53,6 @@ public class UsageAlarm extends BaseActivity implements OnClickListener {
 	@Override
 	protected void setButtonListener() {
 		super.setButtonListener();
-		helpBt.setOnClickListener(this);
-		homeBt.setOnClickListener(this);
 		settingBt.setOnClickListener(this);
 
 	}

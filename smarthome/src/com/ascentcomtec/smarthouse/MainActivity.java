@@ -53,7 +53,7 @@ public class MainActivity extends FormFactory implements
 
 	// public ArrayList<CZBNode> arrayDev = new ArrayList<CZBNode>();
 	// private AlertDialog dialog = null;
-	// private ArrayList<CEndPoint> endPoints = null;
+	// private ArrayList<CEndPoint> endPointSwitch = null;
 	private Control rightControl;
 	private Security securityControl;
 	private TemperatureHumidity temperatureLl;
@@ -543,17 +543,17 @@ public class MainActivity extends FormFactory implements
 	// binding each device for each button
 	// public void InitData() {
 	// try {
-	// endPoints = new ArrayList<CEndPoint>();
+	// endPointSwitch = new ArrayList<CEndPoint>();
 	// for (int i = 0; i < arrayDev.size(); i++) {
 	// ArrayList<CEndPoint> temp = null;
 	// CZBNode node = API.ZBGetZBNodeByIndex(arrayDev.get(i).index);
-	// temp = API.ZBGetEndPointsByIEEE(node.m_ZBNodeAttr.IEEE);
+	// temp = API.ZBGetendPointSwitchByIEEE(node.m_ZBNodeAttr.IEEE);
 	// if (temp != null && temp.size() > 0) {
 	// String id = temp.get(0).m_EPAttr.DeviceID;
 	// if (id.equalsIgnoreCase(Constant.SWITCH)) {
-	// endPoints.add(temp.get(0));
+	// endPointSwitch.add(temp.get(0));
 	// } else if (id.equalsIgnoreCase(Constant.TMSENSOR)) {
-	// endPointsThSensor = temp;
+	// endPointSwitchThSensor = temp;
 	// }
 	// }
 	// }
@@ -597,11 +597,11 @@ public class MainActivity extends FormFactory implements
 		// TODO Auto-generated method stub
 		switch (id) {
 		case 0:
-			if (Application.isInitialize && DeviceManager.endPoints != null) {
+			if (Application.isInitialize && DeviceManager.endPointSwitch != null) {
 				if (status) {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPoints.get(0), 0);
+					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(0), 0);
 				} else {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPoints.get(0), 1);
+					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(0), 1);
 				}
 			} else {
 				Toast.makeText(this, "Initialize SDK failed!Please try again!",
@@ -610,12 +610,12 @@ public class MainActivity extends FormFactory implements
 
 			break;
 		case 1:
-			if (Application.isInitialize && DeviceManager.endPoints != null
-					&& DeviceManager.endPoints.size() >= 2) {
+			if (Application.isInitialize && DeviceManager.endPointSwitch != null
+					&& DeviceManager.endPointSwitch.size() >= 2) {
 				if (status) {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPoints.get(1), 0);
+					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(1), 0);
 				} else {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPoints.get(1), 1);
+					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(1), 1);
 				}
 			} else {
 				Toast.makeText(this, "Initialize SDK failed!Please try again!",
@@ -662,12 +662,12 @@ public class MainActivity extends FormFactory implements
 		// TODO Auto-generated method stub
 		switch (id) {
 		case 0:
-			if (Application.isInitialize && DeviceManager.endPoints != null
-					&& DeviceManager.endPoints.size() >= 3) {
+			if (Application.isInitialize && DeviceManager.endPointSwitch != null
+					&& DeviceManager.endPointSwitch.size() >= 3) {
 				if (status) {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPoints.get(2), 0);
+					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(2), 0);
 				} else {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPoints.get(2), 1);
+					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(2), 1);
 				}
 			} else {
 				Toast.makeText(this, "Initialize SDK failed!Please try again!",
@@ -676,12 +676,12 @@ public class MainActivity extends FormFactory implements
 
 			break;
 		case 1:
-			if (Application.isInitialize && DeviceManager.endPoints != null
-					&& DeviceManager.endPoints.size() >= 4) {
+			if (Application.isInitialize && DeviceManager.endPointSwitch != null
+					&& DeviceManager.endPointSwitch.size() >= 4) {
 				if (status) {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPoints.get(3), 0);
+					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(3), 0);
 				} else {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPoints.get(3), 1);
+					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(3), 1);
 				}
 			} else {
 				Toast.makeText(this, "Initialize SDK failed!Please try again!",
@@ -689,12 +689,12 @@ public class MainActivity extends FormFactory implements
 			}
 			break;
 		case 2:
-			if (Application.isInitialize && DeviceManager.endPoints != null
-					&& DeviceManager.endPoints.size() >= 5) {
+			if (Application.isInitialize && DeviceManager.endPointSwitch != null
+					&& DeviceManager.endPointSwitch.size() >= 5) {
 				if (status) {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPoints.get(4), 0);
+					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(4), 0);
 				} else {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPoints.get(4), 1);
+					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(4), 1);
 				}
 			} else {
 				// Toast.makeText(this, "Comming soon!",

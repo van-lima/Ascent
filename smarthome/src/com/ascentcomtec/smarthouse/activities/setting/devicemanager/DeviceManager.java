@@ -39,9 +39,11 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 			deleteApplianceBt;
 	private ListView listDevices;
 	private AlertDialog dialog = null;
-	public ArrayList<CZBNode> arrayDev = new ArrayList<CZBNode>();
+	public static ArrayList<CZBNode> arrayDev = new ArrayList<CZBNode>();
+	public static ArrayList<CEndPoint> endPointSwitch = null;
 	public static ArrayList<CEndPoint> endPoints = null;
 	private ListDeviceAdapter listDeviceAdapter;
+	public static int curItem = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
 		}
+		endPointSwitch = new ArrayList<CEndPoint>();
 		endPoints = new ArrayList<CEndPoint>();
 		initControl();
 		setTitle(getString(R.string.device_manager));
@@ -59,10 +62,6 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 		ZBEvent.AddSearchProgressChangeListener(this);
 		ZBEvent.AddCreateNewZBNodeListener(this);
 		ZBEvent.AddZBAttrChangeListener(this);
-
-		if (Application.isInitialize) {
-			RefreshData();
-		}
 
 	}
 
@@ -79,7 +78,7 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 
 		listDevices = (ListView) findViewById(R.id.myListViewDevices);
 		listDevices.setOnItemClickListener(this);
-		listDeviceAdapter = new ListDeviceAdapter(this, endPoints);
+		listDeviceAdapter = new ListDeviceAdapter(this, arrayDev);
 		listDevices.setAdapter(listDeviceAdapter);
 		listDevices.setAnimationCacheEnabled(true);
 		listDevices.setAlwaysDrawnWithCacheEnabled(true);
@@ -89,8 +88,6 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 	@Override
 	protected void setButtonListener() {
 		super.setButtonListener();
-		helpBt.setOnClickListener(this);
-		homeBt.setOnClickListener(this);
 		settingBt.setOnClickListener(this);
 
 		addMonitoredBt.setOnClickListener(this);
@@ -106,6 +103,7 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 		switch (v.getId()) {
 		case R.id.myButtonAddMotion:
 			intent = new Intent(DeviceManager.this, AddDevice.class);
+
 			startActivity(intent);
 			break;
 		case R.id.myButtonAddUnMotion:
@@ -131,6 +129,9 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 	@Override
 	protected void onResume() {
 		super.onResume();
+		if (Application.isInitialize) {
+			RefreshData();
+		}
 	}
 
 	@Override
@@ -196,6 +197,7 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long id) {
+		curItem = pos;
 		listDeviceAdapter.setCheck(pos);
 		listDeviceAdapter.notifyDataSetChanged();
 	}
@@ -236,13 +238,13 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 			DeviceListTask task = new DeviceListTask(DeviceManager.this);
 			task.execute(0);
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 
 	}
 
 	public void InitData() {
 		try {
+			endPointSwitch = new ArrayList<CEndPoint>();
 			endPoints = new ArrayList<CEndPoint>();
 			for (int i = 0; i < arrayDev.size(); i++) {
 				ArrayList<CEndPoint> temp = null;
@@ -250,18 +252,36 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 				temp = API.ZBGetEndPointsByIEEE(node.m_ZBNodeAttr.IEEE);
 				if (temp != null && temp.size() > 0) {
 					String id = temp.get(0).m_EPAttr.DeviceID;
+					for (CEndPoint cEndPoint : temp) {
+						endPoints.add(cEndPoint);
+					}
 					if (id.equalsIgnoreCase(Constant.SWITCH)) {
 						for (CEndPoint cEndPoint : temp) {
-							endPoints.add(cEndPoint);
+							endPointSwitch.add(cEndPoint);
 						}
 					} else if (id.equalsIgnoreCase(Constant.TMSENSOR)) {
 					}
 				}
 			}
 			listDeviceAdapter.removeAllItem();
-			listDeviceAdapter.addItems(endPoints);
+			listDeviceAdapter.addItems(arrayDev);
 			listDeviceAdapter.notifyDataSetChanged();
+
+			if (endPoints.size() == 0) {
+				addMonitoredBt.setEnabled(false);
+				addUnMonitoredBt.setEnabled(false);
+			} else {
+				addMonitoredBt.setEnabled(true);
+				addUnMonitoredBt.setEnabled(true);
+			}
 		} catch (Exception e) {
+			if (endPoints.size() == 0) {
+				addMonitoredBt.setEnabled(false);
+				addUnMonitoredBt.setEnabled(false);
+			} else {
+				addMonitoredBt.setEnabled(true);
+				addUnMonitoredBt.setEnabled(true);
+			}
 		}
 	}
 

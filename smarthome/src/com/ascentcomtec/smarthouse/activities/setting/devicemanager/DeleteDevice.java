@@ -1,6 +1,5 @@
 package com.ascentcomtec.smarthouse.activities.setting.devicemanager;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -8,7 +7,6 @@ import android.widget.Button;
 
 import com.ascentcomtec.smarthouse.R;
 import com.ascentcomtec.smarthouse.base.BaseActivity;
-import com.ascentcomtec.smarthouse.ui.portlets.usermanage.EditUser;
 
 public class DeleteDevice extends BaseActivity implements OnClickListener {
 
@@ -41,8 +39,6 @@ public class DeleteDevice extends BaseActivity implements OnClickListener {
 	@Override
 	protected void setButtonListener() {
 		super.setButtonListener();
-		helpBt.setOnClickListener(this);
-		homeBt.setOnClickListener(this);
 		settingBt.setOnClickListener(this);
 		confirmBt.setOnClickListener(this);
 	}

@@ -369,7 +369,7 @@ public class JFormInputData extends LinearLayout {
 			}
 			break;
 		case 0x113:// month
-			float[] dataOfMonth = new float[4];
+			float[] dataOfMonth = new float[12];
 			for (int i = 0; i < dataOfMonth.length; i++) {
 				try {
 					dataOfMonth[i] = Float.parseFloat(editTexts[i].getText()
@@ -447,7 +447,6 @@ public class JFormInputData extends LinearLayout {
 				SmartHomeSharePreferents.putDataWaterOfYear(dataOfYear,
 						getContext());
 				break;
-
 			default:
 				break;
 			}

@@ -11,15 +11,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ascentcomtec.smarthouse.R;
-import com.netvox.zbapi.java.model.CEndPoint;
+import com.netvox.zbapi.java.model.CZBNode;
 
 public class ListDeviceAdapter extends BaseAdapter {
 
-	private ArrayList<CEndPoint> items;
+	private ArrayList<CZBNode> items;
 	private static LayoutInflater inflater = null;
 	private int posCheck = -1;
 
-	public ListDeviceAdapter(Context context, ArrayList<CEndPoint> items) {
+	public ListDeviceAdapter(Context context, ArrayList<CZBNode> items) {
 		this.items = items;
 		inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -54,7 +54,7 @@ public class ListDeviceAdapter extends BaseAdapter {
 		} else {
 			holder.isCheck.setVisibility(View.INVISIBLE);
 		}
-		holder.name.setText(items.get(position).m_EPAttr.Name);
+		holder.name.setText(items.get(position).m_ZBNodeAttr.Name);
 		return vi;
 	}
 
@@ -68,10 +68,10 @@ public class ListDeviceAdapter extends BaseAdapter {
 	}
 	public void removeAllItem(){
 		items = null;
-		items = new ArrayList<CEndPoint>();
+		items = new ArrayList<CZBNode>();
 	}
 
-	public void addItems(ArrayList<CEndPoint> additional) {
+	public void addItems(ArrayList<CZBNode> additional) {
 		items.addAll(additional);
 	}
 }

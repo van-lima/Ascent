@@ -26,12 +26,12 @@ public class Gas extends BaseActivity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.electricity_manage_activity);
+		setContentView(R.layout.viewpage_activity);
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
 		}
 		initControl();
-		setTitle(getString(R.string.add_device));
+		setTitle(getString(R.string.gas_costs));
 		setButtonListener();
 	}
 
@@ -79,8 +79,6 @@ public class Gas extends BaseActivity implements OnClickListener {
 	@Override
 	protected void setButtonListener() {
 		super.setButtonListener();
-		helpBt.setOnClickListener(this);
-		homeBt.setOnClickListener(this);
 		settingBt.setOnClickListener(this);
 
 	}

@@ -23,7 +23,7 @@ public class Water extends BaseActivity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.water_manage_activity);
+		setContentView(R.layout.viewpage_activity);
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
 		}
@@ -78,8 +78,6 @@ public class Water extends BaseActivity implements OnClickListener {
 	@Override
 	protected void setButtonListener() {
 		super.setButtonListener();
-		helpBt.setOnClickListener(this);
-		homeBt.setOnClickListener(this);
 		settingBt.setOnClickListener(this);
 
 	}
