@@ -48,10 +48,13 @@
                 android:background="@drawable/background_round_corner" >
 
                 <EditText
+                    android:layout_margin="5dp"
                     android:id="@+id/myEditTextAdministratorPin"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:background="@color/transparent" />
+                    android:background="@color/transparent"
+                    android:focusable="false" 
+                    android:inputType="textPassword"/>
             </LinearLayout>
 
             <LinearLayout
