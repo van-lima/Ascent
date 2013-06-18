@@ -40,10 +40,10 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 	private ListView listDevices;
 	private AlertDialog dialog = null;
 	public static ArrayList<CZBNode> arrayDev = new ArrayList<CZBNode>();
-	public static ArrayList<CEndPoint> endPointSwitch = null;
-	public static ArrayList<CEndPoint> endPoints = null;
+	private ArrayList<CEndPoint> endPointSwitch = null;
 	private ListDeviceAdapter listDeviceAdapter;
 	public static int curItem = 0;
+	private DeviceListTask task;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,6 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 		if (bundle != null) {
 		}
 		endPointSwitch = new ArrayList<CEndPoint>();
-		endPoints = new ArrayList<CEndPoint>();
 		initControl();
 		setTitle(getString(R.string.device_manager));
 		setButtonListener();
@@ -235,7 +234,7 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 
 	public void RefreshData() {
 		try {
-			DeviceListTask task = new DeviceListTask(DeviceManager.this);
+			task = new DeviceListTask(DeviceManager.this);
 			task.execute(0);
 		} catch (Exception e) {
 		}
@@ -245,16 +244,12 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 	public void InitData() {
 		try {
 			endPointSwitch = new ArrayList<CEndPoint>();
-			endPoints = new ArrayList<CEndPoint>();
 			for (int i = 0; i < arrayDev.size(); i++) {
 				ArrayList<CEndPoint> temp = null;
 				CZBNode node = API.ZBGetZBNodeByIndex(arrayDev.get(i).index);
 				temp = API.ZBGetEndPointsByIEEE(node.m_ZBNodeAttr.IEEE);
 				if (temp != null && temp.size() > 0) {
 					String id = temp.get(0).m_EPAttr.DeviceID;
-					for (CEndPoint cEndPoint : temp) {
-						endPoints.add(cEndPoint);
-					}
 					if (id.equalsIgnoreCase(Constant.SWITCH)) {
 						for (CEndPoint cEndPoint : temp) {
 							endPointSwitch.add(cEndPoint);
@@ -267,7 +262,12 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 			listDeviceAdapter.addItems(arrayDev);
 			listDeviceAdapter.notifyDataSetChanged();
 
-			if (endPoints.size() == 0) {
+			if (arrayDev.size() > 0) {
+				listDeviceAdapter.setCheck(0);
+				listDeviceAdapter.notifyDataSetChanged();
+			}
+
+			if (arrayDev.size() == 0) {
 				addMonitoredBt.setEnabled(false);
 				addUnMonitoredBt.setEnabled(false);
 			} else {
@@ -275,7 +275,7 @@ public class DeviceManager extends BaseActivity implements OnClickListener,
 				addUnMonitoredBt.setEnabled(true);
 			}
 		} catch (Exception e) {
-			if (endPoints.size() == 0) {
+			if (arrayDev.size() == 0) {
 				addMonitoredBt.setEnabled(false);
 				addUnMonitoredBt.setEnabled(false);
 			} else {

@@ -45,6 +45,9 @@ public class AddUser extends BaseActivity implements OnClickListener {
 		limitedIm = (ImageView) findViewById(R.id.myImageViewLimited);
 		administratorLl = (RelativeLayout) findViewById(R.id.myLayoutAdministrator);
 		limitedLl = (RelativeLayout) findViewById(R.id.myLayoutLimited);
+		
+		administratorTv.setTextColor(0xffffffff);
+		limitedTv.setTextColor(0xffcccccc);
 
 	}
 
@@ -67,10 +70,14 @@ public class AddUser extends BaseActivity implements OnClickListener {
 		case R.id.myLayoutAdministrator:
 			administratorIm.setVisibility(View.VISIBLE);
 			limitedIm.setVisibility(View.INVISIBLE);
+			administratorTv.setTextColor(0xffffffff);
+			limitedTv.setTextColor(0xffcccccc);
 			break;
 		case R.id.myLayoutLimited:
 			administratorIm.setVisibility(View.INVISIBLE);
 			limitedIm.setVisibility(View.VISIBLE);
+			limitedTv.setTextColor(0xffffffff);
+			administratorTv.setTextColor(0xffcccccc);
 			break;
 
 		default:

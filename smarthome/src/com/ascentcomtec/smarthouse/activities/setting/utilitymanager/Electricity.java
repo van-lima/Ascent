@@ -148,10 +148,8 @@ public class Electricity extends BaseActivity implements OnClickListener {
 				view = inflater.inflate(resId, null);
 				view.findViewById(R.id.myButtonDone).setOnClickListener(
 						new OnClickListener() {
-
 							@Override
 							public void onClick(View v) {
-								// TODO Auto-generated method stub
 								finish();
 							}
 						});

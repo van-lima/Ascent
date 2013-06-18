@@ -1,6 +1,7 @@
 package com.ascentcomtec.smarthouse;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Context;
@@ -23,12 +24,12 @@ import android.widget.Toast;
 
 import com.ascentcomtec.smarthouse.Control.OnItemSelectedListener;
 import com.ascentcomtec.smarthouse.Security.OnSecuritySelectedListener;
-import com.ascentcomtec.smarthouse.activities.setting.devicemanager.DeviceManager;
+import com.ascentcomtec.smarthouse.constant.Constant;
+import com.ascentcomtec.smarthouse.task.DeviceListTask;
 import com.ascentcomtec.smarthouse.ui.components.ActionBar;
 import com.ascentcomtec.smarthouse.ui.components.Font;
 import com.ascentcomtec.smarthouse.ui.components.FormFactory;
 import com.ascentcomtec.smarthouse.ui.components.textview.JTextView;
-import com.ascentcomtec.smarthouse.ui.portlets.control.DeviceManage;
 import com.ascentcomtec.smarthouse.ui.portlets.settings.Setting;
 import com.ascentcomtec.smarthouse.utilities.ChartUtilities;
 import com.ascentcomtec.smarthouse.utils.Utils;
@@ -39,17 +40,18 @@ import com.netvox.zbapi.java.constant.TemperatureSensorAttr;
 import com.netvox.zbapi.java.event.ZBEvent;
 import com.netvox.zbapi.java.listener.AC_MainsPowerOutletListener;
 import com.netvox.zbapi.java.listener.AC_TemperatureSensorListener;
-import com.netvox.zbapi.java.listener.CreateNewZBNodeListener;
-import com.netvox.zbapi.java.listener.SearchProgressChangeListener;
 import com.netvox.zbapi.java.listener.ZBAttrChangeListener;
 import com.netvox.zbapi.java.model.CEndPoint;
 import com.netvox.zbapi.java.model.CZBNode;
 import com.resolutiondev.ui.drawable.JDrawable;
 
 public class MainActivity extends FormFactory implements
-		AC_MainsPowerOutletListener, SearchProgressChangeListener,
-		CreateNewZBNodeListener, ZBAttrChangeListener, OnItemSelectedListener,
-		OnSecuritySelectedListener, AC_TemperatureSensorListener {
+		AC_MainsPowerOutletListener, ZBAttrChangeListener,
+		OnItemSelectedListener, OnSecuritySelectedListener,
+		AC_TemperatureSensorListener {
+	private DeviceListTask task;
+	public static ArrayList<CEndPoint> endPointSwitch = null;
+	public ArrayList<CZBNode> arrayDev = new ArrayList<CZBNode>();
 
 	// public ArrayList<CZBNode> arrayDev = new ArrayList<CZBNode>();
 	// private AlertDialog dialog = null;
@@ -136,7 +138,7 @@ public class MainActivity extends FormFactory implements
 				getApplicationContext(), Font.FACE_UTMCENTUR, Font.STYLE_BOLD,
 				16));
 		jTextViewTime.setTextSize(Font.getSize());
-//		linearLayoutLogoTime.addView(jTextViewTime);
+		// linearLayoutLogoTime.addView(jTextViewTime);
 		actionBar.addControlActionBarLeft(linearLayoutLogoTime);
 
 		getTitleArea().addView(actionBar);
@@ -199,14 +201,9 @@ public class MainActivity extends FormFactory implements
 		getMenuBar().addView(linearLayoutMenuBar);
 
 		ZBEvent.InitEventSystem();
-		// ZBEvent.AddSearchProgressChangeListener(this);
-		// ZBEvent.AddCreateNewZBNodeListener(this);
 		ZBEvent.AddZBAttrChangeListener(this);
 		ZBEvent.AddAC_TemperatureSensorListener(this);
 		ZBEvent.AddAC_MainsPowerOutletListener(this);
-		// if (Application.isInitialize) {
-		// RefreshData();
-		// }
 
 	}
 
@@ -507,101 +504,15 @@ public class MainActivity extends FormFactory implements
 	}
 
 	@Override
-	public void onCreateNewZBNodeBack(CZBNode arg) {
-		// TODO Auto-generated method stub
-		// int size = arrayDev.size();
-		// Log.e("msg model:", arg.m_ZBNodeAttr.ModelID);
-		// boolean isExist = false;
-		// for (int i = 0; i < size; i++) {
-		// CZBNode node = arrayDev.get(i);
-		// if (node.m_ZBNodeAttr.IEEE.equals(arg.m_ZBNodeAttr.IEEE)) {
-		// isExist = true;
-		// }
-		// }
-		// if (!isExist) {
-		// arrayDev.add(arg);
-		// Message msg = searchHandle.obtainMessage();
-		// msg.what = 0x0003;
-		// searchHandle.sendMessage(msg);
-		// }
-	}
-
-	@Override
-	public void onSearchProgressChange(int progress) {
-		// TODO Auto-generated method stub
-		// Message msg = searchHandle.obtainMessage();
-		// if (progress == 100) {
-		// msg.what = 0x0001;
-		// } else {
-		// msg.what = 0x0002;
-		// msg.arg1 = progress;
-		// }
-		// searchHandle.sendMessage(msg);
-		// msg = null;
-	}
-
-	// binding each device for each button
-	// public void InitData() {
-	// try {
-	// endPointSwitch = new ArrayList<CEndPoint>();
-	// for (int i = 0; i < arrayDev.size(); i++) {
-	// ArrayList<CEndPoint> temp = null;
-	// CZBNode node = API.ZBGetZBNodeByIndex(arrayDev.get(i).index);
-	// temp = API.ZBGetendPointSwitchByIEEE(node.m_ZBNodeAttr.IEEE);
-	// if (temp != null && temp.size() > 0) {
-	// String id = temp.get(0).m_EPAttr.DeviceID;
-	// if (id.equalsIgnoreCase(Constant.SWITCH)) {
-	// endPointSwitch.add(temp.get(0));
-	// } else if (id.equalsIgnoreCase(Constant.TMSENSOR)) {
-	// endPointSwitchThSensor = temp;
-	// }
-	// }
-	// }
-	// } catch (Exception e) {
-	// }
-	// }
-
-	// private Handler searchHandle = new Handler() {
-	// @Override
-	// public void handleMessage(Message msg) {
-	// switch (msg.what) {
-	// case 0x0001: {
-	// dialog.dismiss();
-	// break;
-	// }
-	// case 0x0002: {
-	// dialog.setMessage("Search devices : " + msg.arg1 + "%");
-	// break;
-	// }
-	// case 0x0003: {
-	// // InitData();
-	// break;
-	// }
-	// }
-	// }
-	//
-	// };
-
-	public void RefreshData() {
-		// try {
-		// DeviceListTask task = new DeviceListTask(MainActivity.this);
-		// task.execute(0);
-		// } catch (Exception e) {
-		// // TODO: handle exception
-		// }
-		//
-	}
-
-	@Override
 	public void onSelect(int id, boolean status) {
 		// TODO Auto-generated method stub
 		switch (id) {
 		case 0:
-			if (Application.isInitialize && DeviceManager.endPointSwitch != null) {
+			if (Application.isInitialize && endPointSwitch != null) {
 				if (status) {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(0), 0);
+					API.ZBCLUSTEROnOffToggle(endPointSwitch.get(0), 0);
 				} else {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(0), 1);
+					API.ZBCLUSTEROnOffToggle(endPointSwitch.get(0), 1);
 				}
 			} else {
 				Toast.makeText(this, "Initialize SDK failed!Please try again!",
@@ -610,12 +521,12 @@ public class MainActivity extends FormFactory implements
 
 			break;
 		case 1:
-			if (Application.isInitialize && DeviceManager.endPointSwitch != null
-					&& DeviceManager.endPointSwitch.size() >= 2) {
+			if (Application.isInitialize && endPointSwitch != null
+					&& endPointSwitch.size() >= 2) {
 				if (status) {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(1), 0);
+					API.ZBCLUSTEROnOffToggle(endPointSwitch.get(1), 0);
 				} else {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(1), 1);
+					API.ZBCLUSTEROnOffToggle(endPointSwitch.get(1), 1);
 				}
 			} else {
 				Toast.makeText(this, "Initialize SDK failed!Please try again!",
@@ -662,12 +573,12 @@ public class MainActivity extends FormFactory implements
 		// TODO Auto-generated method stub
 		switch (id) {
 		case 0:
-			if (Application.isInitialize && DeviceManager.endPointSwitch != null
-					&& DeviceManager.endPointSwitch.size() >= 3) {
+			if (Application.isInitialize && endPointSwitch != null
+					&& endPointSwitch.size() >= 3) {
 				if (status) {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(2), 0);
+					API.ZBCLUSTEROnOffToggle(endPointSwitch.get(2), 0);
 				} else {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(2), 1);
+					API.ZBCLUSTEROnOffToggle(endPointSwitch.get(2), 1);
 				}
 			} else {
 				Toast.makeText(this, "Initialize SDK failed!Please try again!",
@@ -676,12 +587,12 @@ public class MainActivity extends FormFactory implements
 
 			break;
 		case 1:
-			if (Application.isInitialize && DeviceManager.endPointSwitch != null
-					&& DeviceManager.endPointSwitch.size() >= 4) {
+			if (Application.isInitialize && endPointSwitch != null
+					&& endPointSwitch.size() >= 4) {
 				if (status) {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(3), 0);
+					API.ZBCLUSTEROnOffToggle(endPointSwitch.get(3), 0);
 				} else {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(3), 1);
+					API.ZBCLUSTEROnOffToggle(endPointSwitch.get(3), 1);
 				}
 			} else {
 				Toast.makeText(this, "Initialize SDK failed!Please try again!",
@@ -689,12 +600,12 @@ public class MainActivity extends FormFactory implements
 			}
 			break;
 		case 2:
-			if (Application.isInitialize && DeviceManager.endPointSwitch != null
-					&& DeviceManager.endPointSwitch.size() >= 5) {
+			if (Application.isInitialize && endPointSwitch != null
+					&& endPointSwitch.size() >= 5) {
 				if (status) {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(4), 0);
+					API.ZBCLUSTEROnOffToggle(endPointSwitch.get(4), 0);
 				} else {
-					API.ZBCLUSTEROnOffToggle(DeviceManager.endPointSwitch.get(4), 1);
+					API.ZBCLUSTEROnOffToggle(endPointSwitch.get(4), 1);
 				}
 			} else {
 				// Toast.makeText(this, "Comming soon!",
@@ -706,4 +617,41 @@ public class MainActivity extends FormFactory implements
 		}
 	}
 
+	public void RefreshData() {
+		try {
+			task = new DeviceListTask(MainActivity.this);
+			task.execute(0);
+		} catch (Exception e) {
+		}
+	}
+
+	public void InitData() {
+		try {
+			endPointSwitch = new ArrayList<CEndPoint>();
+			for (int i = 0; i < arrayDev.size(); i++) {
+				ArrayList<CEndPoint> temp = null;
+				CZBNode node = API.ZBGetZBNodeByIndex(arrayDev.get(i).index);
+				temp = API.ZBGetEndPointsByIEEE(node.m_ZBNodeAttr.IEEE);
+				if (temp != null && temp.size() > 0) {
+					String id = temp.get(0).m_EPAttr.DeviceID;
+					if (id.equalsIgnoreCase(Constant.SWITCH)) {
+						for (CEndPoint cEndPoint : temp) {
+							endPointSwitch.add(cEndPoint);
+						}
+					} else if (id.equalsIgnoreCase(Constant.TMSENSOR)) {
+					}
+				}
+			}
+
+		} catch (Exception e) {
+		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		if (Application.isInitialize) {
+			RefreshData();
+		}
+	}
 }

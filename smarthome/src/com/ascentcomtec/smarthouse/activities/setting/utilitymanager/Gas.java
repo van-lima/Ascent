@@ -105,7 +105,7 @@ public class Gas extends BaseActivity implements OnClickListener {
 			View view;
 			switch (position) {
 			case 0:
-				resId = R.layout.electricity_manage_page1_activity;
+				resId = R.layout.gas_manage_page1_activity;
 				view = inflater.inflate(resId, null);
 				hourWheelStart = (WheelView) view
 						.findViewById(R.id.myWheelViewHourStart);
@@ -142,11 +142,18 @@ public class Gas extends BaseActivity implements OnClickListener {
 
 				break;
 			case 1:
-				resId = R.layout.electricity_manage_page2_activity;
+				resId = R.layout.gas_manage_page2_activity;
 				view = inflater.inflate(resId, null);
+				view.findViewById(R.id.myButtonDone).setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						finish();
+					}
+				});
 				break;
 			default:
-				resId = R.layout.electricity_manage_page2_activity;
+				resId = R.layout.gas_manage_page2_activity;
 				view = inflater.inflate(resId, null);
 				break;
 			}

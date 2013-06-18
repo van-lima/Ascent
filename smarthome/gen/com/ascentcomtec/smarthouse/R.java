@@ -384,17 +384,19 @@ containing a value of this type.
         public static final int edit_user_activity=0x7f03000d;
         public static final int electricity_manage_page1_activity=0x7f03000e;
         public static final int electricity_manage_page2_activity=0x7f03000f;
-        public static final int lis_device_item=0x7f030010;
-        public static final int loopback=0x7f030011;
-        public static final int main=0x7f030012;
-        public static final int splash_activity=0x7f030013;
-        public static final int usage_alarm_activity=0x7f030014;
-        public static final int user_manager_activity=0x7f030015;
-        public static final int utility_manager_activity=0x7f030016;
-        public static final int viewpage_activity=0x7f030017;
-        public static final int water_manage_page1_activity=0x7f030018;
-        public static final int water_manage_page2_activity=0x7f030019;
-        public static final int wheel_text_item=0x7f03001a;
+        public static final int gas_manage_page1_activity=0x7f030010;
+        public static final int gas_manage_page2_activity=0x7f030011;
+        public static final int lis_device_item=0x7f030012;
+        public static final int loopback=0x7f030013;
+        public static final int main=0x7f030014;
+        public static final int splash_activity=0x7f030015;
+        public static final int usage_alarm_activity=0x7f030016;
+        public static final int user_manager_activity=0x7f030017;
+        public static final int utility_manager_activity=0x7f030018;
+        public static final int viewpage_activity=0x7f030019;
+        public static final int water_manage_page1_activity=0x7f03001a;
+        public static final int water_manage_page2_activity=0x7f03001b;
+        public static final int wheel_text_item=0x7f03001c;
     }
     public static final class raw {
         public static final int beep_sm=0x7f060000;

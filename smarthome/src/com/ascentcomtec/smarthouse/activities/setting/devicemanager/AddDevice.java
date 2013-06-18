@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.ascentcomtec.smarthouse.R;
 import com.ascentcomtec.smarthouse.adapters.ListAdapter;
 import com.ascentcomtec.smarthouse.base.BaseActivity;
+import com.ascentcomtec.smarthouse.utilities.DialogUtility;
 import com.netvox.zbapi.java.API;
 import com.netvox.zbapi.java.model.CZBNode;
 
@@ -94,7 +95,7 @@ public class AddDevice extends BaseActivity implements OnClickListener {
 				nextButton.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						viewPager.setCurrentItem(1, true);
+						viewPager.setCurrentItem(1);
 						deviceNameString = deviceNameEd.getText().toString();
 					}
 				});
@@ -137,12 +138,16 @@ public class AddDevice extends BaseActivity implements OnClickListener {
 					@Override
 					public void onClick(View v) {
 						if (deviceNameString.equals("")) {
-							viewPager.setCurrentItem(0, true);
 							Toast.makeText(getApplicationContext(),
 									"Please input name!", 0).show();
+							viewPager.setCurrentItem(0);
 						} else {
 							API.ZBDeviceChangeDName(device, deviceNameString);
-							finish();
+							
+//							DialogUtility.alert(getApplicationContext(),
+//									"Successful",
+//									getString(R.string.add_device),
+//									getString(R.string.ok));
 						}
 					}
 				});

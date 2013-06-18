@@ -94,6 +94,7 @@
                     android:orientation="vertical" >
 
                     <RelativeLayout
+                        android:id="@+id/myLayoutAdministrator"
                         android:layout_width="fill_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -118,6 +119,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/myLayoutLimited"
                         android:layout_width="fill_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -248,8 +250,8 @@
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:layout_marginBottom="5dp"
+                    android:background="@drawable/device_button"
                     android:text="@string/confirm"
-                     android:background="@drawable/device_button"
                     android:textSize="@dimen/text_size" />
             </LinearLayout>
         </LinearLayout>

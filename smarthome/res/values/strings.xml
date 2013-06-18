@@ -71,6 +71,7 @@
     <string name="brand">Brand</string>
     <string name="model_number">Model Number</string>
     <string name="kw_per_hour">Kw Per Hour</string>
+    
     <string name="energy_cost_peak">Energy Cost Peak</string>
     <string name="peak_time_start">Peak time start</string>
     <string name="peak_time_finish">Peak time finish</string>
